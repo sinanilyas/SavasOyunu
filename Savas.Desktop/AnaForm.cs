@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Savas.Desktop
 {
-    public partial class Form1 : Form
+    public partial class AnaForm : Form
     {
-        public Form1()
+        public AnaForm()
         {
             InitializeComponent();
         }
