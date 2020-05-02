@@ -85,5 +85,11 @@
   <ItemGroup>
     <Content Include="Savas.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Savas.Library\Savas.Library.csproj">
+      <Project>{d79f01c5-3c3d-425d-94fc-97d6c3dab58c}</Project>
+      <Name>Savas.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
