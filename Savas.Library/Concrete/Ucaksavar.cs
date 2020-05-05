@@ -1,12 +1,14 @@
-﻿using Savas.Library.Abstract;
+﻿using System.Drawing;
+using Savas.Library.Abstract;
 
 namespace Savas.Library.Concrete
 {
     internal class Ucaksavar : Cisim
     {
-        public Ucaksavar(int panelGenisligi)
+        public Ucaksavar(int panelGenisligi, Size hareketAlaniBoyutlari) : base(hareketAlaniBoyutlari)
         {
-            Left = (panelGenisligi - Width) / 2;
+            Center = panelGenisligi / 2;
+            HareketMesafesi = Width;
         }
     }
 }

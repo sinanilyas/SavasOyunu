@@ -51,6 +51,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enum\Yon.cs" />
+    <Compile Include="Interface\IHareketEden.cs" />
     <Compile Include="Interface\IOyun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
