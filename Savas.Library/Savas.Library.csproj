@@ -50,6 +50,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Concrete\Oyun.cs" />
+    <Compile Include="Concrete\Ucak.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Concrete\Ucaksavar.cs">
       <SubType>Component</SubType>
     </Compile>

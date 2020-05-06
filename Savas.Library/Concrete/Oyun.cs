@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 using Savas.Library.Enum;
 using Savas.Library.Interface;
@@ -13,11 +12,13 @@ namespace Savas.Library.Concrete
 
         private readonly Timer _gecenSureTimer = new Timer { Interval = 1000 };
         private readonly Timer _hareketTimer = new Timer { Interval = 100 };
+        private readonly Timer _ucakOlusturmaTimer = new Timer { Interval = 2000 };
         private TimeSpan _gecenSure;
         private readonly Panel _ucaksavarPanel;
         private readonly Panel _savasAlaniPanel;
         private Ucaksavar _ucaksavar;
         private readonly List<Mermi> _mermiler = new List<Mermi>();
+        private readonly List<Ucak> _ucaklar = new List<Ucak>();
 
         #endregion
 
@@ -53,6 +54,7 @@ namespace Savas.Library.Concrete
 
             _gecenSureTimer.Tick += GecenSureTimer_Tick;
             _hareketTimer.Tick += HareketTimer_Tick;
+            _ucakOlusturmaTimer.Tick += UcakOlusturmaTimer_Tick;
         }
 
         private void GecenSureTimer_Tick(object sender, EventArgs e)
@@ -63,6 +65,11 @@ namespace Savas.Library.Concrete
         private void HareketTimer_Tick(object sender, EventArgs e)
         {
             MermileriHareketEttir();
+        }
+
+        private void UcakOlusturmaTimer_Tick(object sender, EventArgs e)
+        {
+            UcakOlustur();
         }
 
         private void MermileriHareketEttir()
@@ -88,12 +95,21 @@ namespace Savas.Library.Concrete
             ZamanlayicilariBaslat();
 
             UcaksavarOlustur();
+            UcakOlustur();
+        }
+
+        private void UcakOlustur()
+        {
+            var ucak = new Ucak(_savasAlaniPanel.Size);
+            _ucaklar.Add(ucak);
+            _savasAlaniPanel.Controls.Add(ucak);
         }
 
         private void ZamanlayicilariBaslat()
         {
             _gecenSureTimer.Start();
             _hareketTimer.Start();
+            _ucakOlusturmaTimer.Start();
         }
 
         private void UcaksavarOlustur()
@@ -114,6 +130,7 @@ namespace Savas.Library.Concrete
         {
             _gecenSureTimer.Stop();
             _hareketTimer.Stop();
+            _ucakOlusturmaTimer.Stop();
         }
 
         public void AtesEt()
